@@ -28,7 +28,7 @@ if ordertype == 'f':
     json_Data = json.dumps(json_data)
     print(json_Data)
 if ordertype == 'd':
-    cursor.execute('SELECT * FROM drinksmenu WHERE id = {}'.format(orderID))
+    cursor.execute('SELECT * FROM drinksnew WHERE id = {}'.format(orderID))
     row_headers = [x[0] for x in cursor.description]
     rows = cursor.fetchall()
     print(rows)

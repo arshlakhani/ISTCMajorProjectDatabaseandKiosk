@@ -42,16 +42,7 @@ cursor.execute("""
 CREATE TABLE IF NOT EXISTS drinksmenu (
     id INT,
     drinkname TEXT,
-    price INT,
-    water BIT,
-    soda BIT,
-    ice BIT,
-    lemon BIT,
-    sugar BIT,
-    salt BIT,
-    watermelonjuice BIT,
-    strawberryjuice BIT,
-    milk BIT
+    price INT
 
 )
 """)
@@ -59,11 +50,11 @@ CREATE TABLE IF NOT EXISTS drinksmenu (
 cursor.execute(
     """
     INSERT INTO drinksmenu VALUES
-    (201,"Iced Lemonade",59,1,0,1,1,1,1,0,0,0),
-    (202,"Lemon Soda",69,0,1,1,1,1,1,0,0,0),
-    (203,"Watermelon Mojito",89,0,1,1,1,1,1,1,0,0),
-    (204,"Strawberry Mojito",89,0,1,1,1,1,1,0,1,0),
-    (205,"Strawberry Milkshake",149,0,0,1,0,1,1,0,1,1)
+    (201,"Iced Lemonade",59),
+    (202,"Lemon Soda",69),
+    (203,"Watermelon Mojito",89),
+    (204,"Strawberry Mojito",89),
+    (205,"Strawberry Milkshake",149)
     """
 )
 connection.commit()
