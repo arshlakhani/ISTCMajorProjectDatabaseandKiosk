@@ -28,14 +28,14 @@ CREATE TABLE IF NOT EXISTS menu (
 
 cursor.execute("""
 INSERT INTO menu VALUES
-(101, 'Aloo Tikki Burger',69,1,1,1,0,1,1,0,0,0,0,0,0,0,0,0,0),
+(101, 'Chi Tikki Burger',69,1,1,1,0,1,1,0,0,0,0,0,0,0,0,0,0),
 (102, 'Chicken Tikki Burger',109,1,1,1,0,1,0,0,1,0,0,0,0,0,0,0,0),
 (103, 'Fresh Burger',99,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0),
 (104, 'Crispy Paneer Burger',89,1,1,1,0,1,0,1,0,0,0,0,0,0,0,0,0),
 (105, 'Paneer Wrap',109,1,1,1,1,1,0,0,0,0,1,1,0,1,0,0,1),
 (106, 'Chicken Wrap',139,1,1,1,1,1,0,0,0,1,1,1,0,0,0,0,1),
 (107, 'Paneer Sandwich',119,1,1,1,1,1,0,0,0,0,1,1,0,1,0,0,1),
-(108, 'Chicken Wrap',169,1,1,1,1,1,0,0,0,1,1,1,0,0,0,0,1)
+(108, 'Chicken Sandwich',169,1,1,1,1,1,0,0,0,1,1,1,0,0,0,0,1)
 """)
 
 connection.commit()
