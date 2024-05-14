@@ -1,10 +1,3 @@
-/*
-  IoT Club - ISTC Workshop
-  Controlling LED with MQTT
-
-  This code demonstrates how to publish data to a specific MQTT topic .
-*/
-
 #include <WiFi.h>
 #include <PubSubClient.h>
 
@@ -13,7 +6,7 @@ const char* ssid = "ConForNode1";
 const char* password = "12345678";
 
 // MQTT Broker settings
-const char* mqtt_server = "192.168.1.50";
+const char* mqtt_server = "192.168.1.100";
 const int mqtt_port = 1883;
 
 const int sw1 = 16;
@@ -34,10 +27,10 @@ PubSubClient client(espClient);
 
 void setup() {
   Serial.begin(115200);
-  pinMode(sw1, INPUT_PULLUP);
-  pinMode(sw2, INPUT_PULLUP);
-  pinMode(sw3, INPUT_PULLUP);
-  pinMode(sw4, INPUT_PULLUP);
+  pinMode(sw1, INPUT);
+  pinMode(sw2, INPUT);
+  pinMode(sw3, INPUT);
+  pinMode(sw4, INPUT);
   pinMode(drink1, OUTPUT);
   pinMode(drink2, OUTPUT);
   pinMode(drink3, OUTPUT);
@@ -72,56 +65,53 @@ void loop() {
   long pressDuration2 = 0;
   long pressDuration3 = 0;
   long pressDuration4 = 0;
-  while(sw1status == 0){
-    pressDuration += stepDuration;
+  while(sw1status == 1){
+    pressDuration1 += stepDuration;
     delay(stepDuration);
   }
-  if(pressDuration != 0){
-    client.publish("sw1stat", String(pressDuration).c_str());
-    pressDuration = 0;
+  if(pressDuration1 != 0){
+    client.publish("sw1stat", String(pressDuration1).c_str());
+    pressDuration1 = 0;
     digitalWrite(drink1, HIGH);
     delay(drinkPour);
     digitalWrite(drink1, LOW);
   }
 
-  while(sw2status == 0){
-    pressDuration += stepDuration;
+  while(sw2status == 1){
+    pressDuration2 += stepDuration;
     delay(stepDuration);
   }
-  if(pressDuration != 0){
-    client.publish("sw2stat", String(pressDuration).c_str());
-    pressDuration = 0;
+  if(pressDuration2 != 0){
+    client.publish("sw2stat", String(pressDuration2).c_str());
+    pressDuration2 = 0;
     digitalWrite(drink2, HIGH);
     delay(drinkPour);
     digitalWrite(drink2, LOW);
   }
 
-  while(sw3status == 0){
-    pressDuration += stepDuration;
+  while(sw3status == 1){
+    pressDuration3 += stepDuration;
     delay(stepDuration);
   }
-  if(pressDuration != 0){
-    client.publish("sw3stat", String(pressDuration).c_str());
-    pressDuration = 0;
+  if(pressDuration3 != 0){
+    client.publish("sw3stat", String(pressDuration3).c_str());
+    pressDuration3 = 0;
     digitalWrite(drink3, HIGH);
     delay(drinkPour);
     digitalWrite(drink3, LOW);
   }
   
-  while(sw4status == 0){
+  while(sw4status == 1){
     pressDuration += stepDuration;
     delay(stepDuration);
   }
-  if(pressDuration != 0){
-    client.publish("sw4stat", String(stepDuration).c_str());
-    pressDuration = 0;
+  if(pressDuration4 != 0){
+    client.publish("sw4stat", String(pressDuration4).c_str());
+    pressDuration4 = 0;
     digitalWrite(drink4, HIGH);
     delay(drinkPour);
     digitalWrite(drink4, LOW);
   }
-  
-
-  
   
   client.loop();
 }
